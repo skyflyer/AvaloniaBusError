@@ -1,7 +1,9 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="AvaloniaBusError.App"
-             RequestedThemeVariant="Default">
+             RequestedThemeVariant="Default"
+             xmlns:vm="using:AvaloniaBusError"
+             x:DataType="vm:ApplicationViewModel">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
@@ -13,17 +15,7 @@
           <TrayIcon Icon="/Assets/test_icon.ico" ToolTipText="Avalonia Tray Icon ToolTip">
             <TrayIcon.Menu>
               <NativeMenu>
-                <NativeMenuItem Header="Settings">
-                  <NativeMenu>
-                    <NativeMenuItem Header="Option 1" ToggleType="Radio" IsChecked="True"  />
-                    <NativeMenuItem Header="Option 2" ToggleType="Radio" IsChecked="True"  />
-                    <NativeMenuItemSeparator />
-                    <NativeMenuItem Header="Option 3" ToggleType="CheckBox" IsChecked="True"  />
-                    <NativeMenuItem Icon="/Assets/test_icon.ico" Header="Restore Defaults"  />
-                    <NativeMenuItem Header="Disabled option" IsEnabled="False" />
-                  </NativeMenu>
-                </NativeMenuItem>
-                <NativeMenuItem Header="Exit"  />
+                <NativeMenuItem Header="Exit" Command="{Binding ExitCommand}" />
               </NativeMenu>
             </TrayIcon.Menu>
           </TrayIcon>

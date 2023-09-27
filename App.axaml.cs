@@ -6,6 +6,11 @@ namespace AvaloniaBusError;
 
 public partial class App : Application
 {
+    public App()
+    {
+        DataContext = new ApplicationViewModel();
+    }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
